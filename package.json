@@ -13,6 +13,9 @@
   },
   "dependencies": {
     "$": "link:./src",
+    "*":"link:./lib",
+    "@apollo/client": "^3.7.1",
+    "graphql": "^16.6.0",
     "next": "12.2.2",
     "react": "18.2.0",
     "react-dom": "18.2.0",
@@ -50,5 +53,17 @@
     "next-images": "^1.8.4",
     "prettier": "^2.7.1",
     "typescript": "^4.7.4"
-  }
+  },
+  "description": "![](https://github.com/z1digitalstudio/front-end-challenge/blob/main/public/cover.jpg?raw=true)",
+  "main": ".eslintrc.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/murbano17/front-end-challenge.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/murbano17/front-end-challenge/issues"
+  },
+  "homepage": "https://github.com/murbano17/front-end-challenge#readme"
 }
