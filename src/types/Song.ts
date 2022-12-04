@@ -8,7 +8,7 @@ export interface Author {
   id: number;
   name: string;
 }
-export interface Song {
+export interface SongData {
   audio: Audio;
   author: Author;
   description: string;
@@ -17,4 +17,8 @@ export interface Song {
   image: string;
   name: string;
 }
-export type Songs = Song[];
+export interface SongResults {
+  songs: {
+    songs: Array<SongData>;
+  };
+}
