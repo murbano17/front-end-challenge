@@ -1,4 +1,4 @@
-export interface PlaySongContextType {
-  currentSong: SongData | undefined;
-  toggle: (song: SongData) => void;
+export interface AudioState {
+  currentTime: number;
+  duration: number;
 }
