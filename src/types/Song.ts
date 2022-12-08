@@ -19,6 +19,6 @@ export interface SongData {
 }
 export interface SongResults {
   songs: {
-    songs: Array<SongData>;
+    songs: SongData[];
   };
 }
