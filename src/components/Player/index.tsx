@@ -1,37 +1,47 @@
+import { SlideBar } from '$/components/SlideBar';
 import { SongImage } from '$/components/Song/styles';
-import { SongData } from '$/types/Song';
+import { useTrackContext } from '$/context/TrackContext';
 
 import {
+  BackwardIcon,
+  Button,
   ContainerColumn,
   ContainerRow,
   CoverImageContainter,
   FixedPlayer,
+  ForwardIcon,
   PauseIconBig,
   PlayIconBig,
   Text,
   ToggleButton,
 } from './styles';
-import { useAudioPlayer } from './useAudioPlayer';
+import { PlayerProps } from './types';
 
-export const Player = (song: SongData) => {
-  const { playing, toggle } = useAudioPlayer(song.audio.url);
-
+export const Player = ({ nextTrack, previousTrack }: PlayerProps) => {
+  const { currentSong, isPlaying, setIsPlaying } = useTrackContext();
   return (
     <FixedPlayer>
       <ContainerRow>
         <CoverImageContainter>
-          <SongImage src={song.image} />
+          <SongImage src={currentSong?.image} />
         </CoverImageContainter>
         <ContainerColumn>
-          <Text>{song.name}</Text>
-          <Text>{song.author.name}</Text>
+          <Text>{currentSong?.name}</Text>
+          <Text>{currentSong?.author.name}</Text>
         </ContainerColumn>
       </ContainerRow>
-      <button>Go back</button>
-      <ToggleButton onClick={toggle}>
-        {playing ? <PauseIconBig /> : <PlayIconBig />}
-      </ToggleButton>
-      <button>Go ahead</button>
+      <ContainerRow>
+        <Button onClick={previousTrack}>
+          <BackwardIcon />
+        </Button>
+        <ToggleButton onClick={() => setIsPlaying(!isPlaying)}>
+          {isPlaying ? <PauseIconBig /> : <PlayIconBig />}
+        </ToggleButton>
+        <Button onClick={nextTrack}>
+          <ForwardIcon />
+        </Button>
+      </ContainerRow>
+      <SlideBar />
     </FixedPlayer>
   );
 };

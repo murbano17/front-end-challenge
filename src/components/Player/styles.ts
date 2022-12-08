@@ -1,3 +1,5 @@
+import DefaultBackwardIcon from '$/assets/icons/backward-fill.svg';
+import DefaultRewindIcon from '$/assets/icons/rewind-fill.svg';
 import DefaultPlayIcon from '$/assets/icons/play-fill.svg';
 import DefaultPauseIcon from '$/assets/icons/stop-fill.svg';
 import { RoundButton, SongImageContainer } from '$/components/Song/styles';
@@ -30,6 +32,11 @@ export const ToggleButton = styled(RoundButton)`
   background-color: white;
 `;
 
+export const Button = styled.button`
+  border: none;
+  background-color: transparent;
+`;
+
 export const PlayIconBig = styled(DefaultPlayIcon)`
   color: #22223d;
   fill: #22223d;
@@ -39,6 +46,20 @@ export const PlayIconBig = styled(DefaultPlayIcon)`
 export const PauseIconBig = styled(DefaultPauseIcon)`
   color: #22223d;
   fill: #22223d;
+  width: 1rem;
+  height: 1rem;
+`;
+
+export const BackwardIcon = styled(DefaultBackwardIcon)`
+  color: white;
+  fill: white;
+  width: 1rem;
+  height: 1rem;
+`;
+
+export const ForwardIcon = styled(DefaultRewindIcon)`
+  color: white;
+  fill: white;
   width: 1rem;
   height: 1rem;
 `;
