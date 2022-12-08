@@ -1,4 +1,5 @@
 import DefaultPlayIcon from '$/assets/icons/play-fill.svg';
+import DefaultPauseIcon from '$/assets/icons/stop-fill.svg';
 import styled from 'styled-components';
 
 export const SongItem = styled.li`
@@ -41,7 +42,13 @@ export const RoundButton = styled.button`
   align-items: center;
   justify-content: center;
 `;
-export const PlayPauseIcon = styled(DefaultPlayIcon)`
+export const PlayIcon = styled(DefaultPlayIcon)`
+  color: white;
+  fill: white;
+  width: 0.483rem;
+  height: 0.631rem;
+`;
+export const PauseIcon = styled(DefaultPauseIcon)`
   color: white;
   fill: white;
   width: 0.483rem;
