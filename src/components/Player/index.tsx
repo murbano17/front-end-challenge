@@ -10,7 +10,7 @@ export const Player = ({ nextTrack, previousTrack }: PlayerProps) => {
   const { currentSong } = useTrackContext();
   return (
     <FixedPlayer>
-      <SongInfo {...{ currentSong }} />
+      {currentSong && <SongInfo {...currentSong} />}
       <Controls {...{ nextTrack, previousTrack }} />
       <SlideBar />
     </FixedPlayer>
