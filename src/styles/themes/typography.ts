@@ -38,4 +38,15 @@ export const typography = {
     font-size: 0.75rem;
     line-height: 1rem;
   `,
+
+  nameBold: css`
+    font-weight: 500;
+    color: #484a69;
+    font-size: 0.875rem;
+  `,
+  description: css`
+    color: #484a69;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  `,
 };
