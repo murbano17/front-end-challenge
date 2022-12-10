@@ -11,12 +11,14 @@ import {
   PauseIcon,
   PlayIcon,
   RoundButton,
+  SmallText,
   SongImage,
   SongImageContainer,
   SongInfo,
   SongItem,
   Tag,
   TransparentButton,
+  Wrapper,
 } from './styles';
 import { SongProps } from './types';
 
@@ -53,49 +55,49 @@ export const Song = ({ song }: SongProps) => {
 
   return (
     <SongItem>
-      <SongImageContainer>
-        <SongImage src={song.image} alt={`cover image ${song.name}`} />
-      </SongImageContainer>
-      <SongInfo>
-        <Text tag="p" variant="bodyBold">
-          {song.name}
-        </Text>
-        <Text tag="p" variant="nameBold">
-          {song.author.name}
-        </Text>
-        <Text tag="p" variant="description">
-          {song.description}
-        </Text>
-        <ContainerRow>
-          {!isPlaying && (
-            <RoundButton
-              onClick={
-                isThisTheCurrentSong()
-                  ? () => setIsPlaying(true)
-                  : () => setTrackIndex(indexSong)
-              }
-            >
-              <PlayIcon />
-            </RoundButton>
-          )}
-          {isPlaying && (
-            <RoundButton
-              onClick={
-                isThisTheCurrentSong()
-                  ? () => setIsPlaying(false)
-                  : () => setTrackIndex(indexSong)
-              }
-            >
-              {isThisTheCurrentSong() ? <PauseIcon /> : <PlayIcon />}
-            </RoundButton>
-          )}
-
-          <Text tag="p" variant="description">
-            {duration} min
+      <Wrapper>
+        <SongImageContainer>
+          <SongImage src={song.image} alt={`cover image ${song.name}`} />
+        </SongImageContainer>
+        <SongInfo>
+          <Text tag="p" variant="bodyBold">
+            {song.name}
           </Text>
-          <Tag>{song.genre}</Tag>
-        </ContainerRow>
-      </SongInfo>
+          <Text tag="p" variant="nameBold">
+            {song.author.name}
+          </Text>
+          <Text tag="p" variant="description">
+            {song.description}
+          </Text>
+          <ContainerRow>
+            {!isPlaying && (
+              <RoundButton
+                onClick={
+                  isThisTheCurrentSong()
+                    ? () => setIsPlaying(true)
+                    : () => setTrackIndex(indexSong)
+                }
+              >
+                <PlayIcon />
+              </RoundButton>
+            )}
+            {isPlaying && (
+              <RoundButton
+                onClick={
+                  isThisTheCurrentSong()
+                    ? () => setIsPlaying(false)
+                    : () => setTrackIndex(indexSong)
+                }
+              >
+                {isThisTheCurrentSong() ? <PauseIcon /> : <PlayIcon />}
+              </RoundButton>
+            )}
+
+            <SmallText>{duration} min</SmallText>
+            <Tag>{song.genre}</Tag>
+          </ContainerRow>
+        </SongInfo>
+      </Wrapper>
       {isFavSong() ? (
         <TransparentButton onClick={() => removeSong(song.id)}>
           <FavIcon />
