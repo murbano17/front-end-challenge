@@ -1,11 +1,11 @@
 import { Song } from '$/components/Song';
 import { Text } from '$/components/Text';
 
-import { List } from './styles';
+import { Container, List } from './styles';
 import { SongListProps } from './types';
 
 export const SongList = ({ songs }: SongListProps) => (
-  <>
+  <Container>
     <Text tag="h2" variant="title2">
       Featured songs
     </Text>
@@ -14,5 +14,5 @@ export const SongList = ({ songs }: SongListProps) => (
         <Song key={song.id} {...{ song }} />
       ))}
     </List>
-  </>
+  </Container>
 );
