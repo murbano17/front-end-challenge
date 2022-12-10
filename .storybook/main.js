@@ -21,6 +21,7 @@ module.exports = {
   ],
   framework: '@storybook/react',
   webpackFinal: (config) => {
+
     removeSvgLoader(config);
     svgLoader(config);
     return config;
