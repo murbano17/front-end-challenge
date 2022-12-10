@@ -23,7 +23,8 @@
     "react-dom": "18.2.0",
     "storybook": "^6.5.14",
     "styled-components": "^5.3.5",
-    "styled-normalize": "^8.0.7"
+    "styled-normalize": "^8.0.7",
+    "yarn": "^1.22.19"
   },
   "devDependencies": {
     "@babel/core": "^7.18.9",
