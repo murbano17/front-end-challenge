@@ -16,6 +16,7 @@ import {
 } from './logic';
 import { Container, SearchInput } from './styles';
 import { AudioState } from './types';
+import { useLocalStorage } from './useLocalStorage';
 
 const SONGS = gql`
   query GetSongs {
@@ -52,6 +53,7 @@ function HomeView(): JSX.Element {
   });
   const [isPlaying, setIsPlaying] = useState(false);
   const [displayPlayer, setDisplayPlayer] = useState(false);
+  const { addFavSong, removeSong, idsFavSongs } = useLocalStorage();
 
   const currentSong: SongData | undefined = data?.songs.songs[trackIndex];
   const audioRef = useRef<HTMLAudioElement | undefined>();
@@ -69,32 +71,19 @@ function HomeView(): JSX.Element {
   };
 
   useEffect(() => {
-    if (audioRef.current) {
-      audioRef.current.addEventListener('timeupdate', () =>
-        setAudioState({
-          currentTime: audioRef.current?.currentTime || 0,
-          duration: audioRef.current?.duration || 0,
-        }),
-      );
-    }
-    return () => {
-      audioRef?.current?.removeEventListener('timeupdate', () =>
-        setAudioState({
-          currentTime: audioRef.current?.currentTime || 0,
-          duration: audioRef.current?.duration || 0,
-        }),
-      );
-    };
-  }, [audioRef.current]);
-
-  useEffect(() => {
     if (!loading && currentSong)
       audioRef.current = createAudio(currentSong.audio.url);
   }, [loading]);
 
   //Play the next song when current song is ended
   useEffect(() => {
-    if (audioRef.current?.ended) nextTrack();
+    if (audioRef.current?.ended) {
+      setAudioState({
+        currentTime: 0,
+        duration: 0,
+      });
+      nextTrack();
+    }
   }, [audioRef.current?.ended]);
 
   useEffect(() => {
@@ -115,6 +104,25 @@ function HomeView(): JSX.Element {
     }
   }, [trackIndex]);
 
+  useEffect(() => {
+    if (currentSong && audioRef.current) {
+      audioRef.current.addEventListener('timeupdate', () =>
+        setAudioState({
+          currentTime: audioRef.current?.currentTime || 0,
+          duration: audioRef.current?.duration || 0,
+        }),
+      );
+    }
+    return () => {
+      audioRef?.current?.removeEventListener('timeupdate', () =>
+        setAudioState({
+          currentTime: audioRef.current?.currentTime || 0,
+          duration: audioRef.current?.duration || 0,
+        }),
+      );
+    };
+  }, [trackIndex, audioRef.current]);
+
   return (
     <Provider
       value={{
@@ -126,6 +134,9 @@ function HomeView(): JSX.Element {
         songs: data?.songs.songs,
         audioState,
         setAudioState,
+        addFavSong,
+        removeSong,
+        idsFavSongs,
       }}
     >
       <Container>

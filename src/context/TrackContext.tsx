@@ -12,6 +12,9 @@ type TrackContextType = {
   songs: SongData[] | undefined;
   audioState: AudioState;
   setAudioState: (state: AudioState) => void;
+  addFavSong: (id: number) => void;
+  removeSong: (id: number) => void;
+  idsFavSongs: number[] | undefined;
 };
 
 const INITIAL_STATE = {
@@ -22,6 +25,9 @@ const INITIAL_STATE = {
   songs: undefined,
   audioState: { duration: 0, currentTime: 0 },
   setAudioState: () => {},
+  addFavSong: () => {},
+  removeSong: () => {},
+  idsFavSongs: undefined,
 };
 
 export const TrackContext = createContext<TrackContextType>(INITIAL_STATE);
