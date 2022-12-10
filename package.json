@@ -15,9 +15,9 @@
     "$": "link:./src",
     "*": "link:./lib",
     "@apollo/client": "^3.7.1",
-    "@babel/eslint-parser": "^7.19.1",
-    "@babel/parser": "^7.20.5",
-    "babel-eslint": "^10.1.0",
+    "@babel/parser": "^7.11.0",
+    "@babel/preset-typescript": "^7.18.6",
+    "@babel/types": "^7.20.5",
     "graphql": "^16.6.0",
     "next": "12.2.2",
     "react": "18.2.0",
@@ -26,7 +26,8 @@
     "styled-normalize": "^8.0.7"
   },
   "devDependencies": {
-    "@babel/core": "^7.18.9",
+    "@babel/core": "^7.20.5",
+    "@babel/eslint-parser": "^7.19.1",
     "@storybook/addon-a11y": "^6.5.9",
     "@storybook/addon-actions": "^6.5.9",
     "@storybook/addon-essentials": "^6.5.9",
@@ -45,8 +46,9 @@
     "@typescript-eslint/parser": "^5.30.7",
     "@z1digitalstudio/eslint-config-imports": "^1.0.0",
     "babel-loader": "^8.2.5",
+    "babel-plugin-graphql-tag": "^3.3.0",
     "babel-plugin-styled-components": "^2.0.7",
-    "eslint": "7.32.0",
+    "eslint": "^8.29.0",
     "eslint-config-airbnb-typescript": "^17.0.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-import": "^2.26.0",
@@ -57,16 +59,8 @@
     "prettier": "^2.7.1",
     "typescript": "^4.7.4"
   },
-  "description": "![](https://github.com/z1digitalstudio/front-end-challenge/blob/main/public/cover.jpg?raw=true)",
-  "main": ".eslintrc.js",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/murbano17/front-end-challenge.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/murbano17/front-end-challenge/issues"
-  },
-  "homepage": "https://github.com/murbano17/front-end-challenge#readme"
+  "resolutions": {
+    "@babel/core": "7.17.12",
+    "@babel/types": "7.17.12"
+  }
 }
