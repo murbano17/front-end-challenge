@@ -17,6 +17,7 @@
     "@apollo/client": "^3.7.1",
     "@babel/eslint-parser": "^7.19.1",
     "@babel/parser": "^7.20.5",
+    "@mdx-js/mdx": "^2.1.5",
     "graphql": "^16.6.0",
     "next": "12.2.2",
     "react": "18.2.0",
