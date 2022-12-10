@@ -37,7 +37,7 @@ const SONGS = gql`
 const { Provider } = TrackContext;
 
 function HomeView(): JSX.Element {
-  const { loading, error, data } = useQuery<SongResults>(SONGS);
+  const { loading, data } = useQuery<SongResults>(SONGS);
   const songs = data?.songs.songs;
 
   const { addFavSong, removeSong, idsFavSongs } = useLocalStorage();
