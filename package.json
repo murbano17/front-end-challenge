@@ -16,15 +16,13 @@
     "*": "link:./lib",
     "@apollo/client": "^3.7.1",
     "@babel/parser": "^7.20.5",
-    "@mdx-js/mdx": "^2.1.5",
+    "babel-eslint": "^10.1.0",
     "graphql": "^16.6.0",
     "next": "12.2.2",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "storybook": "^6.5.14",
     "styled-components": "^5.3.5",
-    "styled-normalize": "^8.0.7",
-    "yarn": "^1.22.19"
+    "styled-normalize": "^8.0.7"
   },
   "devDependencies": {
     "@babel/core": "^7.18.9",
