@@ -1,46 +1,17 @@
+import { Controls } from '$/components/Controls';
 import { SlideBar } from '$/components/SlideBar';
-import { SongImage } from '$/components/Song/styles';
+import { SongInfo } from '$/components/SongInfo';
 import { useTrackContext } from '$/context/TrackContext';
 
-import {
-  BackwardIcon,
-  Button,
-  ContainerColumn,
-  ContainerRow,
-  CoverImageContainter,
-  FixedPlayer,
-  ForwardIcon,
-  PauseIconBig,
-  PlayIconBig,
-  Text,
-  ToggleButton,
-} from './styles';
+import { FixedPlayer } from './styles';
 import { PlayerProps } from './types';
 
 export const Player = ({ nextTrack, previousTrack }: PlayerProps) => {
-  const { currentSong, isPlaying, setIsPlaying } = useTrackContext();
+  const { currentSong } = useTrackContext();
   return (
     <FixedPlayer>
-      <ContainerRow>
-        <CoverImageContainter>
-          <SongImage src={currentSong?.image} />
-        </CoverImageContainter>
-        <ContainerColumn>
-          <Text>{currentSong?.name}</Text>
-          <Text>{currentSong?.author.name}</Text>
-        </ContainerColumn>
-      </ContainerRow>
-      <ContainerRow>
-        <Button onClick={previousTrack}>
-          <BackwardIcon />
-        </Button>
-        <ToggleButton onClick={() => setIsPlaying(!isPlaying)}>
-          {isPlaying ? <PauseIconBig /> : <PlayIconBig />}
-        </ToggleButton>
-        <Button onClick={nextTrack}>
-          <ForwardIcon />
-        </Button>
-      </ContainerRow>
+      <SongInfo {...{ currentSong }} />
+      <Controls {...{ nextTrack, previousTrack }} />
       <SlideBar />
     </FixedPlayer>
   );
