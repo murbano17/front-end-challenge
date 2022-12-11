@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 const key = 'favSongsIds';
 
-export const useLocalStorage = () => {
+export const useFavouriteSong = () => {
   const [idsFavSongs, setIdsFavSongs] = useState<number[]>();
 
   const getFavIdsLocalStorage = () => {

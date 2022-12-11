@@ -8,7 +8,7 @@ import { gql, useQuery } from '@apollo/client';
 
 import { Container, SearchInput } from './styles';
 import { useAudioPlayer } from './useAudioPlayer';
-import { useLocalStorage } from './useLocalStorage';
+import { useLocalStorage } from './useFavouriteSong';
 
 const SONGS = gql`
   query GetSongs {
