@@ -36,6 +36,7 @@ export const SongItem = styled.li`
   width: 100%;
   gap: 1.25rem;
   width: 100%;
+  align-items: center;
 `;
 
 export const PauseIcon = styled(DefaultPauseIcon)`
@@ -88,6 +89,23 @@ export const ContainerRow = styled.div`
 export const TransparentButton = styled.button`
   border: none;
   background-color: transparent;
+  transition: 0.1s all ease;
+  border-radius: 0.25rem;
+  width: 2rem;
+  height: 2rem;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.2rem;
+
+  &:hover {
+    border: 1px solid;
+    border-color: ${(props) =>
+      props.color ? `rgba(${props.color}, 1)` : '#bf508b'};
+    background-color: ${(props) =>
+      props.color ? `rgba(${props.color}, 0.3)` : `rgba(191, 80, 139, .3)`};
+  }
 `;
 
 export const AddFav = styled(DefaultAddFavIcon)`

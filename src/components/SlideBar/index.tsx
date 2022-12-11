@@ -1,7 +1,7 @@
 import { useTrackContext } from '$/context/TrackContext';
 
 import { secondsToMinutsFormat } from './logic';
-import { Range, Wrapper } from './styles';
+import { Range, Text, Wrapper } from './styles';
 
 export const SlideBar = () => {
   const { audioState, setAudioState, audioRef } = useTrackContext();
@@ -16,7 +16,7 @@ export const SlideBar = () => {
 
   return (
     <Wrapper>
-      <p>{secondsToMinutsFormat(currentTime)}</p>
+      <Text>{secondsToMinutsFormat(currentTime)}</Text>
       <Range
         type="range"
         value={currentTime}

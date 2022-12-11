@@ -103,7 +103,7 @@ export const Song = ({ song }: SongProps) => {
           <FavIcon />
         </TransparentButton>
       ) : (
-        <TransparentButton onClick={() => addFavSong(song.id)}>
+        <TransparentButton onClick={() => addFavSong(song.id)} color={'178, 182, 202'}>
           <AddFav />
         </TransparentButton>
       )}

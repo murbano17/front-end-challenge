@@ -23,7 +23,6 @@ module.exports = {
         '@z1digitalstudio/eslint-config-imports',
       ],
       parser: '@typescript-eslint/parser',
-      requireConfigFile: false, 
       parserOptions: {
         project: './tsconfig.json',
       },
