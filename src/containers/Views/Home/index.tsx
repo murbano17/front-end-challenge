@@ -37,7 +37,7 @@ const SONGS = gql`
 const { Provider } = TrackContext;
 
 function HomeView(): JSX.Element {
-  const { loading, data } = useQuery<SongResults>(SONGS);
+  const { loading, data, error } = useQuery<SongResults>(SONGS);
   const songs = data?.songs.songs;
 
   const { addFavSong, removeSong, idsFavSongs } = useFavouriteSong();
@@ -82,6 +82,11 @@ function HomeView(): JSX.Element {
         )}
         {currentSong && displayPlayer && (
           <Player {...{ previousTrack, nextTrack }} />
+        )}
+        {error && (
+          <Text tag="h2" variant="title2">
+            Ooops!¡Ha habido un error!
+          </Text>
         )}
       </Container>
     </Provider>
