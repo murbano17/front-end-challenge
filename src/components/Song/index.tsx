@@ -35,6 +35,7 @@ export const Song = ({ song }: SongProps) => {
   } = useTrackContext();
 
   const [duration, setDuration] = useState<string>();
+  const [audio] = useState<HTMLAudioElement>(new Audio(song.audio.url));
   const indexSong = (songs && findIndexSong(songs, song)) || 0;
 
   const isFavSong = () => (idsFavSongs?.includes(song.id) ? true : false);
@@ -42,7 +43,6 @@ export const Song = ({ song }: SongProps) => {
     song.id === currentSong?.id ? true : false;
 
   const getDuration = () => {
-    const audio = new Audio(song.audio.url);
     audio.addEventListener('loadedmetadata', () => {
       const durationSong = Number(audio.duration);
       setDuration(secondsToMinutsFormat(durationSong));
@@ -51,7 +51,7 @@ export const Song = ({ song }: SongProps) => {
 
   useEffect(() => {
     getDuration();
-  }, []);
+  }, [audio]);
 
   return (
     <SongItem>
@@ -93,7 +93,7 @@ export const Song = ({ song }: SongProps) => {
               </RoundButton>
             )}
 
-            <SmallText>{duration} min</SmallText>
+            {duration && <SmallText>{duration} min</SmallText>}
             <Tag>{song.genre}</Tag>
           </ContainerRow>
         </SongInfo>
@@ -103,7 +103,10 @@ export const Song = ({ song }: SongProps) => {
           <FavIcon />
         </TransparentButton>
       ) : (
-        <TransparentButton onClick={() => addFavSong(song.id)} color={'178, 182, 202'}>
+        <TransparentButton
+          onClick={() => addFavSong(song.id)}
+          color={'178, 182, 202'}
+        >
           <AddFav />
         </TransparentButton>
       )}
