@@ -6,7 +6,7 @@ yarn install
 yarn next dev
 ```
 
-
+[z1-front-end-challenge-eight.vercel.app](https://z1-front-end-challenge-eight.vercel.app/)
 
 ## Tecnologias utilizadas 👷🏻‍♀️
 
