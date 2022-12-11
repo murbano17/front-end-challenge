@@ -8,7 +8,7 @@ import { gql, useQuery } from '@apollo/client';
 
 import { Container, SearchInput } from './styles';
 import { useAudioPlayer } from './useAudioPlayer';
-import { useLocalStorage } from './useFavouriteSong';
+import { useFavouriteSong } from './useFavouriteSong';
 
 const SONGS = gql`
   query GetSongs {
@@ -40,7 +40,7 @@ function HomeView(): JSX.Element {
   const { loading, data } = useQuery<SongResults>(SONGS);
   const songs = data?.songs.songs;
 
-  const { addFavSong, removeSong, idsFavSongs } = useLocalStorage();
+  const { addFavSong, removeSong, idsFavSongs } = useFavouriteSong();
   const {
     audioState,
     setAudioState,
